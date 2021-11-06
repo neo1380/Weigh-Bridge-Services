@@ -7,35 +7,35 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration  {
 
-    private static final String[] AUTH_LIST = { //
-            "/v2/api-docs", //
-            "/configuration/ui", //
-            "/swagger-resources", //
-            "/configuration/security", //
-            "/swagger-ui.html", //
-            "/webjars/**" //
-    };
+//    private static final String[] AUTH_LIST = { //
+//            "/v2/api-docs", //
+//            "/configuration/ui", //
+//            "/swagger-resources", //
+//            "/configuration/security", //
+//            "/swagger-ui.html", //
+//            "/webjars/**" //
+//    };
+//
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication().withUser("user").password(passwordEncoder().encode("user")).roles("USER").and()
+//                .withUser("api-admin").password(passwordEncoder().encode("admin")).roles("USER", "ADMIN");
+//    }
+//
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.authorizeRequests().antMatchers(AUTH_LIST).authenticated().and().httpBasic();
+//    }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("user").password(passwordEncoder().encode("user")).roles("USER").and()
-                .withUser("api-admin").password(passwordEncoder().encode("admin")).roles("USER", "ADMIN");
-    }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers(AUTH_LIST).authenticated().and().httpBasic();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 }
